@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form & Input Fields</title>
+</head>
+
+<body>
+    <h1>Form & Input Fields</h1>
+
+    <form action="app.js">
+        <label for="name">Name</label>
+        <input type="text" placeholder="Enter your name">
+
+        <br>
+        <br>
+
+        <label for="email">Email</label>
+        <input type="email" placeholder="enter your email" required>
+        <br>
+        <br>
+        <label for="password">Password</label>
+        <input type="password" placeholder="enter your password" required>
+        <br>
+        <br>
+
+        <label for="gender">Gender</label>
+
+        <input type="radio" value="male" name="gender" required>
+        <label for="male">Male</label>
+
+        <input type="radio" value="female" name="gender">
+        <label for="female">Female</label>
+
+        <br>
+        <br>
+        <label for="hobby">hobby</label>
+        <br>
+
+        <input type="checkbox" value="singing">
+        <label for="singing">Singing</label>
+        <br>
+        <input type="checkbox" value="dancing">
+        <label for="singing">Dancing</label>
+        <br>
+        <input type="checkbox" value="Writing">
+        <label for="singing">Writing</label>
+        <br>
+        <br>
+        <label for="city">Choose the City</label>
+
+        <select>
+            <option value="">Delhi</option>
+            <option value="">Mumbai</option>
+            <option value="">Kolkata</option>
+            <option value="">Chennai</option>
+            <option value="">Chadigarh</option>
+        </select>
+
+        <br>
+        <br>
+        <label for="DOB">DOB</label>
+        <input type="datetime-local">
+
+       <br>
+       <br>
+
+       <!-- <button>Submit</button> -->
+
+       <label for="">Tell me something about yourself</label>
+       <br>
+
+       <textarea cols="20" rows="10"></textarea>
+
+       <br><br>
+
+       <input type="submit" value="Submit the form">
+    </form>
+</body>
+
+</html>
