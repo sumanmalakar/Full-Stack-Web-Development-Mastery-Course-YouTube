@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+    <style>
+        /* h1,p{
+            background-color: blue;
+        }
+         */
+
+         .maths{
+            background-color: yellow;
+         }
+
+         .py{
+            background-color: red;
+            color: white;
+         }
+
+         #m{
+            background-color: blue;
+         }
+
+         #heading{
+            background-color: pink;
+            
+         }
+
+         /* .parent > p{
+            background-color: red;
+         } */
+
+         .parent p{
+            background-color: red;
+         }
+
+         *{
+            background-color: black;
+            color: white;
+            /* padding: 0;
+            margin: 0; */
+         }
+
+         li:first-child{
+            background-color: yellow;
+         }
+
+         li:last-child{
+            background-color: red;
+         }
+
+         li:nth-child(3){
+            background-color: blue;
+         }
+         li:nth-child(5){
+            background-color: #fff;
+            color: black;
+         }
+
+         a:link{
+            color: yellow;
+         }
+        
+         a:visited{
+            color: blue;
+         }
+
+         a:active{
+            color: blue;
+         }
+
+         a:hover{
+            color: pink;
+         }
+
+         .fancy::before{
+            content: '🔥';
+         }
+         .fancy::after{
+            content: '🛒🎉';
+         }
+
+    </style>
+</head>
+<body>
+    <!-- class selector -->
+    <h1 class="maths">This is lecture - 13 , CSS Selectors - Maths</h1>
+
+    <p class="py">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, impedit! - Physics</p>
+
+    <!-- id selector -->
+    <h2 id="heading">This is brand new H2 Tag</h2>
+
+    <h3 class="py">This is brand new h3 tag - Physics</h3>
+
+    <!-- <ul class="maths">
+       <li>Superman</li>
+       <li>Spiderman</li>
+       <li>Thor</li>
+    </ul> -->
+
+    <p class="maths" id="m">THis is brand new paragaraph - Maths</p>
+
+
+    <!-- child selector -->
+     <div class="parent">
+        <!-- <p>child - 1</p>
+        <p>child - 2</p> -->
+        <div>
+            <p>child - 3</p>
+        </div>
+     </div>
+    
+     <ul>
+       <li>Superman</li>
+       <li>Spiderman</li>
+       <li>Batman</li>
+       <li>Thor</li>
+       <li>IronMan</li>
+       <li>Loki</li>
+     </ul>
+
+     <a href="https://www.youtube.com/playlist?list=PL-CeQccLavFeytqS_ALj97JNd4PF4gc1z" target="_blank">Normal Link</a>
+
+     <a href="https://www.youtube.com/playlist?list=PL-CeQccLavFeytqS_ALj97JNd4PF4gc1z" target="_blank">Visited Link</a>
+
+     <a href="https://www.youtube.com/playlist?list=PL-CeQccLavFeytqS_ALj97JNd4PF4gc1z" target="_blank">Hover Link</a>
+
+     <a href="https://www.youtube.com/playlist?list=PL-CeQccLavFeytqS_ALj97JNd4PF4gc1z" target="_blank">Active Link</a>
+
+     
+     <p class="fancy">Hello My Lovely Freind's From the Internet</p>
+</body>
+</html>
