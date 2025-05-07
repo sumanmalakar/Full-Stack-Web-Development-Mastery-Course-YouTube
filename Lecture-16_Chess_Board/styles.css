@@ -1,0 +1,32 @@
+body{
+    background-color: rgb(6, 6, 119);
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.chess_board{
+    height: 640px;
+    width: 640px;
+    margin: auto;
+}
+
+.box1{
+    height: 80px;
+    width: 80px;
+    background-color: black;
+    float: left;
+    color: white;
+    font-size: 3.2rem;
+    text-align: center;
+}
+.box2{
+    height: 80px;
+    width: 80px;
+    font-size: 3.2rem;
+    background-color: white;
+    float: left;
+    color: black;
+    text-align: center;
+}
+
