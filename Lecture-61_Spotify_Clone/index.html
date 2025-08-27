@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Clone</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+
+      <style>
+#m::-webkit-scrollbar{
+  display: none;
+}
+      </style>
+
+  
+  </head>
+  <body class="bg-black text-white font-sans">
+    <!-- Layout -->
+    <div class="flex h-screen">
+      <!-- sidebar -->
+      <aside class="w-74 bg-black flex flex-col p-5 border-r border-zinc-800">
+        <h1 class="text-green-500 font-bold text-2xl mb-8">Spotify</h1>
+
+        <!-- Create playlist -->
+        <div class="mt-2 space-y-4">
+          <div class="bg-zinc-900 p-4 rounded-lg">
+            <p class="font-semibold mb-2">Create your first playlist</p>
+            <p class="text-sm text-gray-400 mb-3">It’s easy, we’ll help you</p>
+            <button
+              class="bg-white text-black px-3 py-1 rounded-full font-bold text-sm"
+            >
+              Create playlist
+            </button>
+          </div>
+
+          <div class="bg-zinc-900 p-4 rounded-lg">
+            <p class="font-semibold mb-2">Let’s find some podcasts to follow</p>
+            <p class="text-sm text-gray-400 mb-3">
+              We’ll keep you updated on new episodes
+            </p>
+            <button
+              class="bg-white text-black px-3 py-1 rounded-full font-bold text-sm"
+            >
+              Browse podcasts
+            </button>
+          </div>
+        </div>
+
+        <!-- File Upload -->
+        <div class="my-5 mx-auto">
+          <label
+            class="cursor-pointer bg-green-500 text-black px-4 py-2 rounded-lg text-sm font-bold hover:bg-green-400"
+          >
+            Choose Music
+            <input
+              type="file"
+              id="fileInput"
+              webkitdirectory
+              directory
+              multiple
+              hidden
+            />
+          </label>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-xs text-gray-400 mt-4">
+          <p class="mb-2">Legal • Privacy • Cookies</p>
+          <button class="px-2 py-1 border border-gray-400 rounded-full text-sm">
+            English
+          </button>
+        </div>
+      </aside>
+
+
+        <!-- Main section -->
+        <div class="flex-1 flex flex-col">
+          <!-- header with search bar -->
+          <header
+            class="p-4 bg-black flex items-center justify-between border-b border-zinc-800"
+          >
+            <div
+              class="flex items-center space-x-2 w-full max-w-lg bg-zinc-900 px-3 py-2 rounded-full"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"
+                />
+              </svg>
+              <input id="search" type="text" placeholder="What do you want to play?"
+              class="bg-transparent outline-none text-sm w-full" />
+            </div>
+
+            <div class="space-x-3">
+                <button class="font-semibold">Sign up</button>
+                <button class="bg-white text-black px-4 py-2 rounded-full font-bold">Log in</button>
+            </div>
+          </header>
+
+          <!-- Main Content -->
+           <main class="flex-1 overflow-y-auto p-6" id="m">
+
+            <!-- Trending songs -->
+             <section class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Trending Songs</h2>
+              <div id="songsGrid"
+             class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6" 
+              >
+              <!-- Songs will be appended dynamically here -->
+              </div>
+            
+             </section>
+
+             <!-- Popular Artist -->
+              <section>
+                <h2 class="text-2xl font-bold mb-4">Popular Artists</h2>
+                <div class="flex space-x-6 overflow-x-auto">
+                    <div class="w-38 shrink-0 text-center">
+                        <img src="image/1.jpg" class="w-28 h-28 mx-auto rounded-full object-cover mb-2" alt="">
+                        <p class="text-sm">Sam</p>
+                    </div>
+                    <div class="w-38 shrink-0 text-center">
+                        <img src="image/2.jpg" class="w-28 h-28 mx-auto rounded-full object-cover mb-2" alt="">
+                        <p class="text-sm">Sam</p>
+                    </div>
+                    <div class="w-38 shrink-0 text-center">
+                        <img src="image/3.jpg" class="w-28 h-28 mx-auto rounded-full object-cover mb-2" alt="">
+                        <p class="text-sm">Sam</p>
+                    </div>
+                    <div class="w-38 shrink-0 text-center">
+                        <img src="image/4.jpg" class="w-28 h-28 mx-auto rounded-full object-cover mb-2" alt="">
+                        <p class="text-sm">Sam</p>
+                    </div>
+                    <div class="w-38 shrink-0 text-center">
+                        <img src="image/5.jpg" class="w-28 h-28 mx-auto rounded-full object-cover mb-2" alt="">
+                        <p class="text-sm">Sam</p>
+                    </div>
+                    <div class="w-38 shrink-0 text-center">
+                        <img src="image/6.jpg" class="w-28 h-28 mx-auto rounded-full object-cover mb-2" alt="">
+                        <p class="text-sm">Alina</p>
+                    </div>
+
+                </div>
+              </section>
+           </main>
+
+           <!-- Player Bar -->
+            <footer class="bg-zinc-900 p-3 flex items-center justify-between border-t border-zinc-800">
+
+                <div class="flex items-center space-x-3">
+                    <img src="" 
+                    id="currentCover"
+                    alt="cover"
+                    class="w-12 h-12 object-cover rounded">
+                    <div>
+                        <!-- <p id="currentTitle" class="text-sm font-bold></p> -->
+                        <p id="currentTitle" class="text-sm font-bold"></p>
+
+                        <p id="currentArtist" class="text-xs text-gray-400">---</p>
+                    </div>
+                </div>
+                
+            <div class="flex flex-col items-center w-1/2">
+                    <div class="flex items-center space-x-4 mb-2">
+                        <button id="prevBtn" class="hover:text-gray-400">⏮️</button>
+                        <button id="playBtn" class="hover:text-gray-400 text-xl">▶️</button>
+                        <button id="nextBtn" class="hover:text-gray-400">⏭️</button>
+                    </div>
+                    <input id="progress" value="0" class="w-full accent-green-500" type="range" />
+                </div>
+
+                <input type="range" id="volume" min="0" max="1" step="0.01" value="1"
+                class="w-32 accent-green-500">                    
+            </footer>
+        </div>
+    </div>
+
+    <audio id="audio"></audio>
+
+    <script>
+      const fileInput = document.getElementById("fileInput");
+      const songsGrid = document.getElementById("songsGrid");
+      const audio = document.getElementById("audio");
+      const playBtn = document.getElementById("playBtn");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const progress = document.getElementById("progress");
+      const volume = document.getElementById("volume");
+      const currentCover = document.getElementById("currentCover");
+      const currentTitle = document.getElementById("currentTitle");
+      const currentArtist = document.getElementById("currentArtist");
+      const search = document.getElementById("search");
+
+      let songs = [];
+      let currentIndex = 0;
+
+      // load song into player
+      function loadSong(index){
+        const song = songs[index];
+
+        if(!song) return;
+
+        audio.src = URL.createObjectURL(song.file);
+            currentTitle.textContent = song.title;
+            currentArtist.textContent = song.artist;
+
+        const coverSrc = song.cover && song.cover.trim() !== "" ? song.cover :
+        fallbackImages[index % fallbackImages.length];   
+        
+      //  currentCover.src = coverSrc;
+        currentCover.src = coverSrc;
+
+        // audio.paly();
+        audio.play();
+        playBtn.textContent = "⏸️"
+
+      }
+
+      // paly / pause toggle
+      playBtn.addEventListener("click",()=>{
+        if(audio.paused){
+            audio.play();
+            playBtn.textContent = "⏸️"
+        }else{
+            audio.pause();
+            playBtn.textContent = "▶️"
+        }
+      })
+
+      // next song
+      nextBtn.addEventListener("click",()=>{
+        currentIndex = (currentIndex + 1) % songs.length;
+        loadSong(currentIndex)
+      })
+
+      // previous song
+      prevBtn.addEventListener("click",()=>{
+        currentIndex = (currentIndex - 1 + songs.length)% songs.length
+        loadSong(currentIndex)
+      })
+
+      // progress bar
+      audio.addEventListener("timeupdate",()=>{
+        progress.value = (audio.currentTime / audio.duration)*100 || 0;
+      })
+
+      // seek song
+      progress.addEventListener("input",()=>{
+       audio.currentTime = (progress.value/100)* audio.duration;
+      })
+
+      // volume control
+     volume.addEventListener("input",()=>{
+        audio.volume = volume.value;
+     })
+
+     // search filter
+     search.addEventListener("input",()=>{
+        const query = search.value.toLowerCase();
+        Array.from(songsGrid.children).forEach((card)=>{
+            const title = card.dataset.title.toLowerCase();
+            card.style.display = title.includes(query) ?"block":"none";
+        })
+     })
+
+     // some randome fallback artist names
+     const randomArtists = [
+        "John","same","sarah","James"
+     ]
+
+     // Helper: get a random artist name
+     function getRandomArtist(){
+        return randomArtists[Math.floor(Math.random()* randomArtists.length)]
+     }
+
+     // load songs from user folder
+     fileInput.addEventListener("change",(e)=>{
+        songs = [];
+        songsGrid.innerHTML = "";
+        const files = Array.from(e.target.files).filter((f)=>f.type.startsWith("audio"))
+
+        files.forEach((file,idx)=>{
+            let song = {file, title:file.name, artist:"", cover:""};
+
+             new jsmediatags.Reader(file).read({
+                onSuccess: (tag) =>{
+                    if(tag.tags.title) song.title = tag.tags.title;
+                    if(tag.tags.artist && tag.tags.artist.trim() !== ""){
+                        song.artist = tag.tags.artist; // original artist name
+                    }else{
+                        song.artist = getRandomArtist(); // radom artist name
+                    }
+
+                    if(tag.tags.picture){
+                        let data = tag.tags.picture.data;
+                        // let formate = tag.tags.picture.formate;
+                        let format = tag.tags.picture.format;
+                      let base64 = "";
+            //   for (const i = 0; i < data.length; i++) 
+            //    base64 += String.fromCharCode(data[i]);
+
+              for (let i = 0; i < data.length; i++) {
+               base64 += String.fromCharCode(data[i]);}
+
+
+            song.cover = `data:${format};base64,${window.btoa(base64)}`;
+                         
+                    }
+                    renderSong(song,idx);
+                },
+                onError: ()=>{
+                    // if error
+                    song.artist = getRandomArtist();
+                    renderSong(song,idx)
+                }
+             })
+
+             songs.push(song);
+
+        })
+     })
+   
+     // fallback image
+     const fallbackImages = [
+        "image/Trending/3.jpg",
+        "image/Trending/2.jpg",
+        "image/Trending/4.jpg",
+        "image/Trending/5.jpg",
+        "image/Trending/6.jpg",
+     ]
+
+     // Render song 
+     function renderSong(song, idx){
+        const card = document.createElement("div");
+        card.className = 
+        "bg-zinc-900 hover:bg-zinc-800 p-3 rounded-lg cursor-pointer";
+        card.dataset.title = song.title;
+
+        // pick cover image if exist
+        const coverSrc = song.cover && song.cover.trim() !== ""?song.cover: fallbackImages[idx%fallbackImages.length];
+
+        card.innerHTML = `
+        <img src=${coverSrc}
+        // class="w-full h-32 object-cover rounded md-2"
+        class="w-full h-32 object-cover rounded mb-2"
+        />
+        <p class="font-bold truncate"> ${song.title}</p>
+        <p class="text-xs text-gray-400 truncate"> ${song.artist}</p>
+        `
+
+        card.addEventListener("click",()=>{
+            currentIndex = idx;
+            loadSong(currentIndex)
+        });
+
+        songsGrid.appendChild(card);
+
+     }
+    </script>
+  </body>
+</html>
