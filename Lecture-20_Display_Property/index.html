@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Display Property</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        h1 {
+            background-color: yellow;
+            color: black;
+            /* display: inline; */
+            /* display: none; */
+            /* visibility: hidden; */
+        }
+
+        h2 {
+            background-color: blue;
+        }
+
+        span {
+            background-color: yellow;
+            color: black;
+            display: block;
+            /* height: 2rem; */
+            /* width: 2rem; */
+        }
+
+        h3 {
+            background-color: blue;
+            height: 5rem;
+            width: 5rem;
+            display: inline-block;
+
+        }
+
+        .contents-example {
+            background-color: yellow;
+            /* color: black; */
+            display: contents;
+        }
+
+        .table {
+            display: table;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-cell {
+            display: table-cell;
+            border: 1px solid rgb(6, 240, 150);
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="table">
+        <div class="table-row">
+            <div class="table-cell">Name</div>
+            <div class="table-cell">Age</div>
+        </div>
+        <div class="table-row">
+            <div class="table-cell">Suman</div>
+            <div class="table-cell">24</div>
+        </div>
+    </div>
+
+
+
+    <h1>CSS Display Property</h1>
+    <h2>This is Web Dev Mastery</h2>
+
+    <span>Web Dev Mastery</span>
+
+    <a href="">Open Google</a>
+
+    <br>
+
+    <h3>Inline example</h3>
+    <div class="contents-example">
+        <p>Item A</p>
+        <p>Item B</p>
+    </div>
+
+</body>
+
+</html>
