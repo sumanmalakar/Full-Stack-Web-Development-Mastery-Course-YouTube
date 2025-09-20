@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform, Transition & ease</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: blue;
+            margin: auto;
+            transition: transform, background-color 2s,2s ease;
+        }
+        .box:hover{
+            border: 2px solid yellow;
+            /* transform: translateX(100px); */
+            /* transform: translate(100px,100px); */
+            /* transform: scale(2.2); */
+            transform: rotate(45deg);
+            /* transform: skewX(45deg); */
+            background-color: yellowgreen;
+        }
+
+        .image-container{
+            width: 70%;
+            margin: auto;
+        }
+
+        img{
+            width: 50%;
+            
+            transition: transform,border 2s,2s ease;
+        }
+
+        img:hover{
+            transform: scale(1.3);
+            border: 2px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Transform , Transition & ease</h1>
+
+    <!-- Transform -->
+     <!-- <div class="box"></div> -->
+
+    <div class="image-container">
+        <img src="https://cdn.pixabay.com/photo/2025/05/11/22/13/mountains-9594042_640.jpg" alt="Zoom">
+    </div>
+        
+    
+</body>
+</html>

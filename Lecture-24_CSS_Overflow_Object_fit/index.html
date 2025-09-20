@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Overflow & Object - fit</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .container {
+            width: 300px;
+            height: 100px;
+            border: 2px solid yellow;
+            padding: 10px;
+            overflow: auto;
+            /* overflow: scroll; */
+            overflow-x: hidden;
+            /* overflow-y: hidden; */
+        }
+        .image-container{
+            width: 400px;
+            height: 200px;
+            border: 2px solid yellow;
+            overflow: hidden;
+        }
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: scale-down;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1>CSS Overflow & Object - fit </h1> -->
+
+    <!-- overflow -->
+    <!-- <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat omnis iure cum molestiae blanditiis eos
+         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae culpa omnis veritatis aut, esse corrupti asperiores officiis cupiditate. Eaque deserunt mollitia beatae natus dolor quo vitae ut veniam ex nobis?
+        </p>
+    </div> -->
+
+    <!-- object fit -->
+     <h2>Object fit</h2>
+     <div class="image-container">
+        <img src="https://cdn.pixabay.com/photo/2024/11/13/01/47/woman-9193216_640.jpg" alt="lady">
+         
+     </div>
+
+</body>
+
+</html>
