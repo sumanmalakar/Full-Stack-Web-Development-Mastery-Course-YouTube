@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Element Access</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        #h1{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1">We are learning JavaScript DOM right now</h1>
+    <h1 class="h1">This is another brand new h1</h1>
+    
+    <p class="para" id="suman">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, nemo?</p>
+
+    <p class="para" id="pa">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+    <script>
+    //    let element = document.querySelector('.para')
+
+let element = document.querySelectorAll('.para')
+
+       console.log(element)
+
+        // let element = document.getElementById('h1')
+
+        // let ele2 = document.getElementsByClassName('para')
+
+        // let el3 = document.getElementsByTagName('h1')
+
+        // console.log(el3)
+
+
+        // console.log(ele2[0])
+
+        // ele2[0].innerText = 'ram'
+
+        // element.style.backgroundColor = 'yellow'
+      
+
+
+
+
+    </script>
+
+</body>
+</html>

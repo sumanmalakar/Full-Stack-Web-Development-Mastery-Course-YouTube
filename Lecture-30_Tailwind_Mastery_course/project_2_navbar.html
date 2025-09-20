@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+<body>
+  <nav class="bg-white shadow-md px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+     
+        <!-- Desktop Menu -->
+         <div class="text-2xl font-bold text-blue-700"> Brand</div>
+         
+         <ul class="hidden md:flex gap-6 text-gray-600 font-medium">
+             <li><a href="#">Home</a></li>
+             <li><a href="#">About</a></li>
+             <li><a href="#">Services</a></li>
+             <li><a href="#">Contact</a></li>
+            </ul>
+
+            <!-- Mobile menu icon -->
+             <div class="md:hidden">
+                <button id="menu-btn" class="text-3xl">&#9776;</button>
+             </div>
+        </div>
+
+        <!-- Mobile Menu -->
+
+        <div id="mobile-menu" class="md:hidden hidden px-4 mt-2">
+            <ul class="flex flex-col gap-6 text-gray-600 font-medium">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+   
+        </div>
+
+  </nav>
+    
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Changer APP</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        .image_container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .image_container img{
+            height: 300px;
+            border: 2px solid blue;
+            border-radius: 10px;
+            cursor: pointer;
+
+        }
+        .image_container h2{
+            background-color: yellow;
+            color: black;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid blue;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Image Changer Application</h1>
+    <div class="image_container">
+        <img src="https://cdn.pixabay.com/photo/2015/09/19/15/56/panorama-947410_1280.jpg" alt="">
+        <h2>London</h2>
+    </div>
+    
+    <script>
+        let img = document.querySelector('img');
+        let h2 = document.querySelector('h2');
+        let prev_src = img.src;
+        let prev_text = h2.innerText;
+
+        img.addEventListener('mouseover',()=>{
+            img.src = 'https://cdn.pixabay.com/photo/2018/12/14/21/29/sunset-3875817_1280.jpg'
+            h2.innerText = "New York City"
+            img.style.border = '2px solid yellow';
+        })
+
+        img.addEventListener('mouseleave',()=>{
+            img.src = prev_src;
+            h2.innerText = prev_text;
+            img.style.border = '2px solid blue';
+        })
+       
+    </script>
+    
+</body>
+</html>

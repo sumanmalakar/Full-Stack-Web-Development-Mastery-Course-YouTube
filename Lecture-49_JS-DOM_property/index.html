@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Properties</title>
+    <style>
+      body {
+        background-color: black;
+        color: white;
+      }
+      .web{
+        background-color: rgb(255, 0, 149);
+        border-radius: 10px;
+        border: 2px solid white;
+        padding: 20px;
+        margin: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="wdm" id="Suman">
+      Suman, Web Dev Mastery
+      <span>WDM</span>
+      <span>SUMAN@GMAIL.COM</span>
+
+      <script>
+        let element = document.querySelector("h1");
+        //  console.log("My element = ", element)
+        // console.log("Text content = ",element.textContent);
+        // console.log("Innert HTML = ",element.innerHTML)
+        // console.log("Inner Text = ",element.innerText)
+        // console.log("Class name = ",element.className)
+        // console.log("tag ka naam = ", element.tagName)
+        // console.log("style = ",element.style)
+
+        // element.style.backgroundColor = "Yellow"
+        // element.style.color = "black"
+
+        element.textContent = "This is brand new text"
+
+        element.className = 'web'
+      </script>
+    </h1>
+  </body>
+</html>

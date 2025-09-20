@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Suman Malakar — Creative Portfolio</title>
+
+  <!-- Tailwind CDN + custom config for dark mode & animations -->
+  <script>
+    // Tailwind config before CDN loads
+    window.tailwind = {
+      config: {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'bg-1': '#0b1220',
+              'bg-2': '#071029',
+              'accent': '#7c3aed',
+              'muted': '#94a3b8'
+            },
+            keyframes: {
+              floaty: {
+                '0%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-12px)' },
+                '100%': { transform: 'translateY(0px)' }
+              },
+              typing: {
+                '0%': { width: '0ch' },
+                '100%': { width: '24ch' }
+              },
+              blink: { '50%': { borderColor: 'transparent' } },
+              slideIn: {
+                '0%': { transform: 'translateY(24px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' }
+              }
+            },
+            animation: {
+              floaty: 'floaty 6s ease-in-out infinite',
+              typing: 'typing 2.4s steps(24) 0.6s 1 normal both',
+              blink: 'blink .8s step-end infinite',
+              slideIn: 'slideIn .6s cubic-bezier(.2,.9,.3,1) both'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* small extras */
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    /* typing effect container */
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .12em solid rgba(255,255,255,0.7);
+      box-sizing: border-box;
+    }
+    /* adjust border for dark/light */
+    :root { --card-glow: 0 6px 30px rgba(124,58,237,0.12); }
+    .dark :root { --card-glow: 0 8px 36px rgba(124,58,237,0.18); }
+
+    /* project card tilt on hover */
+    .tilt {
+      transform-style: preserve-3d;
+      transition: transform .45s cubic-bezier(.2,.9,.3,1), box-shadow .45s;
+      perspective: 1000px;
+    }
+    .tilt:hover {
+      transform: rotateX(6deg) rotateY(-6deg) translateY(-8px);
+      box-shadow: var(--card-glow);
+    }
+
+    /* smooth scrollbar small tweak */
+    ::-webkit-scrollbar { width: 8px; height:8px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 8px; }
+  </style>
+</head>
+<body class="bg-black bg-gradient-to-b from-bg-1 via-bg-2 to-[#040718] text-gray-200 antialiased selection:bg-accent selection:text-white">
+  <!-- Decorative floating gradient blobs -->
+  <div aria-hidden="true" class="fixed inset-0 -z-10 pointer-events-none">
+    <div class="absolute -left-32 -top-20 w-96 h-96 rounded-full bg-gradient-to-tr from-[#6ee7b7]/20 via-[#7c3aed]/20 to-[#60a5fa]/10 blur-3xl animate-floaty"></div>
+    <div class="absolute -right-40 top-1/4 w-80 h-80 rounded-full bg-gradient-to-br from-[#f472b6]/12 via-[#7c3aed]/12 to-[#34d399]/10 blur-2xl animate-floaty" style="animation-delay:2s"></div>
+  </div>
+
+  <!-- NAV -->
+  <header class="sticky top-4 z-30">
+    <div class="max-w-6xl mx-auto px-6">
+      <nav class="flex items-center justify-between glass p-3 rounded-2xl">
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-accent to-[#06b6d4] flex items-center justify-center text-lg font-bold shadow-lg">
+            SM
+          </div>
+          <div>
+            <p class="text-sm font-medium">Suman Malakar</p>
+            <p class="text-xs text-muted">MERN & UI Engineer</p>
+          </div>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-white transition">About</a>
+          <a href="#projects" class="hover:text-white transition">Projects</a>
+          <a href="#skills" class="hover:text-white transition">Skills</a>
+          <a href="#contact" class="hover:text-white transition">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="themeToggle" aria-label="Toggle Dark Mode" class="w-10 h-10 rounded-lg glass flex items-center justify-center hover:scale-105 transition">
+            <!-- moon icon -->
+            <svg id="themeIcon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+          </button>
+          <a href="#contact" class="bg-accent px-4 py-2 rounded-lg text-sm font-semibold hover:scale-105 transition shadow">Hire Me</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN HERO -->
+  <main class="max-w-6xl mx-auto px-6 mt-12">
+    <section class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6">
+        <p class="text-sm text-accent font-medium uppercase tracking-wide">Hello, I'm</p>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+          Suman Malakar
+        </h1>
+
+        <div class="flex items-center gap-3">
+          <p class="text-lg md:text-xl typing" style="width: min(24ch, 100%);">
+            Full-stack MERN Developer — UI/UX Enthusiast
+          </p>
+        </div>
+
+        <p class="text-muted max-w-xl slide-in" style="animation: slideIn .6s ease-out .2s both">
+          I build performant, accessible and beautiful web experiences using React, Node, and Tailwind.
+          I love animation, small interactive details and clean code.
+        </p>
+
+        <div class="flex items-center gap-3">
+          <a href="#projects" class="px-5 py-2 rounded-lg bg-transparent border border-gray-700 hover:bg-accent/10 transition">View Projects</a>
+          <a href="#contact" class="px-5 py-2 rounded-lg glass hover:scale-105 transition">Let's Talk</a>
+        </div>
+
+        <div class="mt-6 flex items-center gap-3 text-sm text-muted">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M3 7v10a2 2 0 002 2h3m10 0h1a2 2 0 002-2V7M7 7V5a2 2 0 012-2h6a2 2 0 012 2v2"/></svg>
+          Available for freelance & full-time — open to interesting opportunities.
+        </div>
+      </div>
+
+      <!-- profile card -->
+      <div class="relative">
+        <div class="tilt glass rounded-3xl p-6 md:p-10">
+          <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-[#7c3aed] to-[#06b6d4] flex items-center justify-center text-xl font-bold">SM</div>
+            <div>
+              <p class="font-semibold text-lg">Suman Malakar</p>
+              <p class="text-sm text-muted">MERN Stack Developer</p>
+            </div>
+          </div>
+
+          <div class="mt-6 space-y-4">
+            <p class="text-sm text-muted">I specialize in building full-stack apps with React, Node, Express, and MongoDB. I like small micro-interactions, accessible UI, and performance tuning.</p>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-3 rounded-lg glass text-center">
+                <p class="text-sm font-semibold">4+</p>
+                <p class="text-xs text-muted">Years experience</p>
+              </div>
+              <div class="p-3 rounded-lg glass text-center">
+                <p class="text-sm font-semibold">30+</p>
+                <p class="text-xs text-muted">Projects</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3 mt-2">
+              <a class="p-2 rounded-lg glass" href="#" title="Github">
+                <!-- github -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.2 11.4c.6.1.8-.2.8-.6v-2.3c-3.3.7-4-1.6-4-1.6-.6-1.5-1.4-1.9-1.4-1.9-1.2-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.1 2 2.9 1.4 3.6 1.1.1-.9.4-1.4.7-1.8-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.3 1.3-3.1-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 3 .1 3.3.8.8 1.3 1.8 1.3 3.1 0 4.6-2.7 5.6-5.3 5.9.4.3.7 1 .7 2v3c0 .4.2.7.8.6A12 12 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a class="p-2 rounded-lg glass" href="#" title="LinkedIn">
+                <!-- linkedin -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.79-1.75-1.764 0-.974.784-1.764 1.75-1.764s1.75.79 1.75 1.764c0 .974-.784 1.764-1.75 1.764zm13.5 11.268h-3v-5.604c0-1.336-.026-3.056-1.863-3.056-1.864 0-2.149 1.45-2.149 2.95v5.71h-3v-10h2.882v1.367h.041c.402-.762 1.382-1.565 2.846-1.565 3.043 0 3.604 2.003 3.604 4.604v5.594z"/></svg>
+              </a>
+              <a class="p-2 rounded-lg glass" href="#" title="Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557a9.83 9.83 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.916 4.916 0 0 0-8.38 4.482c-4.083-.205-7.702-2.159-10.126-5.134A4.822 4.822 0 0 0 1.64 6.1c.556.155 1.146.24 1.76.24.86 0 1.69-.116 2.48-.33a4.905 4.905 0 0 0 3.65-4.81c0-.073 0-.146-.005-.218C13.42 3.9 16.6 2 19.557 2a4.93 4.93 0 0 1 1.43 9.81 4.902 4.902 0 0 1-2.24-.617c.63 1.964 2.45 3.392 4.6 3.432A9.867 9.867 0 0 0 24 4.557z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- badges -->
+        <div class="mt-6 flex gap-3">
+          <div class="p-2 rounded-lg glass text-sm">React</div>
+          <div class="p-2 rounded-lg glass text-sm">Node</div>
+          <div class="p-2 rounded-lg glass text-sm">MongoDB</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="mt-16">
+      <h2 class="text-2xl font-semibold mb-6">Selected Projects</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- project card repeated -->
+        <article class="tilt glass p-5 rounded-2xl hover:shadow-xl transition">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold">E-Commerce MERN</div>
+            <div class="text-xs text-muted">Next.js · Stripe</div>
+          </div>
+          <p class="mt-4 text-sm text-muted">A full-featured e-commerce app with cart, payments, admin panel and product management.</p>
+          <div class="mt-4 flex items-center gap-2">
+            <span class="text-xs px-2 py-0.5 rounded-full glass">React</span>
+            <span class="text-xs px-2 py-0.5 rounded-full glass">Node</span>
+          </div>
+          <div class="mt-5 flex justify-between items-center">
+            <a href="#" class="text-sm font-medium">Live preview →</a>
+            <div class="text-xs text-muted">⭐ 4.8</div>
+          </div>
+        </article>
+
+        <article class="tilt glass p-5 rounded-2xl hover:shadow-xl transition" style="animation-delay:.05s">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold">Social Media App</div>
+            <div class="text-xs text-muted">Firebase · React</div>
+          </div>
+          <p class="mt-4 text-sm text-muted">Realtime posts, comments, likes, and media upload powered by Firebase Storage & Firestore.</p>
+          <div class="mt-4 flex items-center gap-2">
+            <span class="text-xs px-2 py-0.5 rounded-full glass">Firebase</span>
+            <span class="text-xs px-2 py-0.5 rounded-full glass">React</span>
+          </div>
+          <div class="mt-5 flex justify-between items-center">
+            <a href="#" class="text-sm font-medium">Code →</a>
+            <div class="text-xs text-muted">⭐ 4.7</div>
+          </div>
+        </article>
+
+        <article class="tilt glass p-5 rounded-2xl hover:shadow-xl transition" style="animation-delay:.1s">
+          <div class="flex items-center justify-between">
+            <div class="text-sm font-semibold">Music Player UI</div>
+            <div class="text-xs text-muted">HTML · Tailwind</div>
+          </div>
+          <p class="mt-4 text-sm text-muted">Custom audio player with album art embedding and playlist controls.</p>
+          <div class="mt-4 flex items-center gap-2">
+            <span class="text-xs px-2 py-0.5 rounded-full glass">HTML</span>
+            <span class="text-xs px-2 py-0.5 rounded-full glass">Tailwind</span>
+          </div>
+          <div class="mt-5 flex justify-between items-center">
+            <a href="#" class="text-sm font-medium">Demo →</a>
+            <div class="text-xs text-muted">⭐ 4.6</div>
+          </div>
+        </article>
+      </div>
+      <div class="mt-6">
+        <a href="#" class="text-sm text-accent font-medium">View all projects →</a>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="mt-16 grid md:grid-cols-2 gap-8">
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Skills & Tools</h3>
+        <ul class="grid grid-cols-2 gap-3 text-sm">
+          <li class="glass rounded-lg p-3">React</li>
+          <li class="glass rounded-lg p-3">Node.js</li>
+          <li class="glass rounded-lg p-3">Express</li>
+          <li class="glass rounded-lg p-3">MongoDB</li>
+          <li class="glass rounded-lg p-3">Tailwind CSS</li>
+          <li class="glass rounded-lg p-3">Git & GitHub</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-xl font-semibold mb-4">Experience</h3>
+        <div class="space-y-4 text-sm text-muted">
+          <div class="glass p-4 rounded-lg">
+            <div class="font-semibold">Technical Trainer — Chandigarh University</div>
+            <div class="text-xs mt-1">2024 — Present</div>
+            <p class="mt-2">Deliver MERN & DSA training to batches, create assignments, and mentor student projects.</p>
+          </div>
+
+          <div class="glass p-4 rounded-lg">
+            <div class="font-semibold">SDE Intern — Resolute AI</div>
+            <div class="text-xs mt-1">2023 — 2024</div>
+            <p class="mt-2">Frontend development, React components, and UI polishing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="mt-16 mb-24">
+      <h3 class="text-xl font-semibold mb-4">Get in touch</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <form class="glass p-6 rounded-2xl space-y-4" onsubmit="event.preventDefault(); alert('Message sent (demo) — replace with your backend)';">
+          <div>
+            <label class="block text-sm mb-1">Name</label>
+            <input class="w-full p-3 bg-transparent border border-gray-700 rounded-lg" placeholder="Your name" required />
+          </div>
+          <div>
+            <label class="block text-sm mb-1">Email</label>
+            <input type="email" class="w-full p-3 bg-transparent border border-gray-700 rounded-lg" placeholder="you@example.com" required />
+          </div>
+          <div>
+            <label class="block text-sm mb-1">Message</label>
+            <textarea rows="5" class="w-full p-3 bg-transparent border border-gray-700 rounded-lg" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <div class="flex items-center gap-3">
+            <button type="submit" class="px-5 py-2 rounded-lg bg-accent font-semibold">Send message</button>
+            <button type="reset" class="px-4 py-2 rounded-lg glass">Reset</button>
+          </div>
+        </form>
+
+        <div class="space-y-4">
+          <div class="glass p-6 rounded-2xl">
+            <p class="text-sm text-muted">Prefer email? Send a message directly:</p>
+            <a href="mailto:malakars041@gmail.com" class="block mt-3 text-accent font-medium">malakars041@gmail.com</a>
+            <p class="mt-4 text-sm text-muted">Based in India — Open to remote & on-site roles.</p>
+          </div>
+
+          <div class="glass p-6 rounded-2xl">
+            <h4 class="font-semibold">Quick Links</h4>
+            <ul class="mt-3 text-sm text-muted space-y-2">
+              <li>Resume — <a href="#" class="text-accent">Download</a></li>
+              <li>GitHub — <a href="#" class="text-accent">View</a></li>
+              <li>LinkedIn — <a href="#" class="text-accent">Visit</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-8 text-center text-sm text-muted">
+      © <span id="year"></span> Suman Malakar — Built with ❤️ and Tailwind CSS
+    </footer>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme toggle (persist in localStorage)
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const root = document.documentElement; // html element
+
+    function setDarkMode(isDark) {
+      if (isDark) root.classList.add('dark');
+      else root.classList.remove('dark');
+
+      // swap icon (moon <-> sun)
+      themeIcon.innerHTML = isDark
+        ? '<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 3v1m0 16v1m8-9h1M3 12H2m15.364 6.364l-.707.707M6.343 6.343l-.707.707m12.728 0l.707.707M6.343 17.657l.707.707\" />'
+        : '<path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M12 3C12 3 15 6 19 7c0 0-1 3-5 5 0 0 2 4 6 5 0 0-3 3-8 3-5 0-8-3-8-3 4-1 6-5 6-5C6 10 5 7 5 7c4-1 7-4 7-4z\" />';
+    }
+
+    // read from localStorage, default dark true
+    const prefer = localStorage.getItem('prefers-dark');
+    const isDark = prefer === null ? true : prefer === 'true';
+    setDarkMode(isDark);
+
+    themeToggle.addEventListener('click', () => {
+      const nowDark = root.classList.contains('dark');
+      setDarkMode(!nowDark);
+      localStorage.setItem('prefers-dark', !nowDark);
+    });
+
+    // small entrance animation triggers for items
+    document.querySelectorAll('.slide-in').forEach((el, i) => {
+      el.style.animationDelay = `${0.1 + i * 0.08}s`;
+    });
+  </script>
+</body>
+</html>

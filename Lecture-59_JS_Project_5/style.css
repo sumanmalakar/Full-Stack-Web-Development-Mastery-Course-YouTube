@@ -1,0 +1,36 @@
+.food{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem;
+}
+
+input{
+    width: 25rem;
+    background-color: rgb(70,44,44);
+    border: none;
+    color: white;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+input::placeholder{
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+input:focus{
+    outline: none;
+}
+
+button{
+    font-weight: bold !important;
+}
+
+.img{
+    width: 220px;
+    border-radius: 10px;
+    border: 2px solid blue;
+}
